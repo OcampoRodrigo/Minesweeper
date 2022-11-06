@@ -20,6 +20,14 @@ top_frame = Frame(
 #Placing the variable
 top_frame.place(x="0" , y="0")
 
+#Creating frame variable to display the score
+left_frame = Frame(
+    root,
+    bg="blue",
+    width="360",
+    height="540"
+)
+left_frame.place(x="0" , y="180")
 
 #Iterate until we close it.
 root.mainloop()
