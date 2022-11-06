@@ -4,10 +4,22 @@ from tkinter import *
 # stackoverflow for example.
 root = Tk()
 root.configure(bg="lightblue")
+
 #Setting some properties for the windows
 root.geometry("1440x720")
 root.title("Minesweeper Game")
 root.resizable(False , False)
+
+#Creating frame variable
+top_frame = Frame(
+    root,
+    bg="black",
+    width="1440",
+    height="180"
+)
+#Placing the variable
+top_frame.place(x="0" , y="0")
+
 
 #Iterate until we close it.
 root.mainloop()
