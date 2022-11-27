@@ -24,11 +24,24 @@ top_frame.place(x="0" , y="0")
 #Creating frame variable to display the score
 left_frame = Frame(
     root,
-    bg="blue",
+    bg="white",
     width= utils.width_prct(25),
     height= utils.height_prct(75)
 )
 left_frame.place(x="0", y= utils.height_prct(25))
+
+center_frame = Frame(
+    root,
+    bg="green",
+    width=utils.width_prct(75),
+    height=utils.height_prct(75)
+)
+center_frame.place(
+    x=utils.width_prct(25),
+    y=utils.height_prct(25)
+)
+
+
 
 #Iterate until we close it.
 root.mainloop()
