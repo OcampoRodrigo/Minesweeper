@@ -27,7 +27,7 @@ left_frame = Frame(
     width="360",
     height="540"
 )
-left_frame.place(x="0" , y="180")
+left_frame.place(x="0", y="180")
 
 #Iterate until we close it.
 root.mainloop()
