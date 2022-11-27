@@ -1,4 +1,5 @@
 from tkinter import *
+from cell import Cell
 import settings
 import utils
 #Creating basic window class. We use name "root" because it is a convention on tkinter so we can search for problems in
