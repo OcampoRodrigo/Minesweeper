@@ -7,4 +7,12 @@ class Cell:
         btn = Button(
             location
         )
+        #Bind = Print something when we left-click on a button
+
+        btn.bind("<Button-1>", self.left_click_actions) #"<Button-1>" is convention for left-click
+        btn.bind("<Button-3>", self.right_click_actions) #"<Button-3>" is convention for right-click
         self.cell_btn_object = btn
+    def left_click_actions(self , event):
+        print("i am left clicked")
+    def right_click_actions(self, event):
+        print("i am right click")
