@@ -5,7 +5,11 @@ class Cell:
         self.cell_btn_object = None
     def create_btn_object(self, location):
         btn = Button(
-            location
+            location,
+            text="Text",
+            width=12,
+            height=4
+
         )
         #Bind = Print something when we left-click on a button
 
