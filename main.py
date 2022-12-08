@@ -20,14 +20,14 @@ top_frame = Frame(
     height= utils.height_prct(25)
 )
 #Placing the variable
-top_frame.place(x="0" , y="0")
+top_frame.place(x="0", y="0")
 
 #Creating frame variable to display the score
 left_frame = Frame(
     root,
     bg="white",
-    width= utils.width_prct(25),
-    height= utils.height_prct(75)
+    width=utils.width_prct(25),
+    height=utils.height_prct(75)
 )
 left_frame.place(x="0", y= utils.height_prct(25))
 
@@ -42,6 +42,13 @@ center_frame.place(
     y=utils.height_prct(25)
 )
 
+for x in range(settings.GRID_SIZE):
+    for y in range(settings.GRID_SIZE):
+        button = Cell()
+        button.create_btn_object(center_frame)
+        button.cell_btn_object.grid(
+            column=x, row=y
+        )
 
 
 
