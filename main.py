@@ -44,7 +44,7 @@ center_frame.place(
 
 for x in range(settings.GRID_SIZE):
     for y in range(settings.GRID_SIZE):
-        button = Cell()
+        button = Cell(x, y)
         button.create_btn_object(center_frame)
         button.cell_btn_object.grid(
             column=x, row=y
