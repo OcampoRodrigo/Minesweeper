@@ -49,7 +49,7 @@ for x in range(settings.GRID_SIZE):
         button.cell_btn_object.grid(
             column=x, row=y
         )
-
+Cell.randomize_mines()
 
 
 
