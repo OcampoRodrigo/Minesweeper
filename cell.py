@@ -14,7 +14,6 @@ class Cell:
     def create_btn_object(self, location):
         btn = Button(
             location,
-            text=f"{self.x}, {self.y}",
             width=12,
             height=4
 
@@ -26,8 +25,12 @@ class Cell:
         self.cell_btn_object = btn
 
     def left_click_actions(self, event):
-        print("i am left clicked")
-
+        if self.is_mine:
+            self.show_mine()
+    def show_mine(self):
+        #A logic to interrupt the game and display a message that the player lost
+        #For now, we only change the background color to red
+        self.cell_btn_object.configure(bg="red")
     def right_click_actions(self, event):
         print("i am right click")
 
@@ -39,3 +42,4 @@ class Cell:
 
     def __repr__(self):
         return f"Cell({self.x},{self.y})"
+
