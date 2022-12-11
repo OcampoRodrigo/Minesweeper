@@ -34,9 +34,9 @@ class Cell:
         for cell in Cell.all:
             if cell.x == x and cell.y == y:
                 return cell
-
-    def show_cell(self):
-        surrounding_cells = [
+    @property
+    def surrounding_cells(self):
+        cells = [
             self.get_cell_by_axis(self.x - 1, self.y - 1),
             self.get_cell_by_axis(self.x - 1, self.y),
             self.get_cell_by_axis(self.x - 1, self.y + 1),
@@ -46,6 +46,10 @@ class Cell:
             self.get_cell_by_axis(self.x + 1, self.y),
             self.get_cell_by_axis(self.x + 1, self.y + 1),
         ]
+        cells = [cell for cell in cells if cell is not None]
+        return cells
+
+    def show_cell(self):
         print(surrounding_cells)
     def show_mine(self):
         #A logic to interrupt the game and display a message that the player lost
