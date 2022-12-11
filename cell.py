@@ -56,7 +56,7 @@ class Cell:
                 counter += 1
         return counter
     def show_cell(self):
-        print(self.surrounding_cells)
+        self.cell_btn_object.configure(text=self.surrounding_cells_mines_length)
     def show_mine(self):
         #A logic to interrupt the game and display a message that the player lost
         #For now, we only change the background color to red
