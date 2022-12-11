@@ -1,12 +1,15 @@
-from tkinter import Button
+from tkinter import Button, Label
 import random
 import settings
 
 class Cell:
     all = []
+    cell_count = settings.CELL_COUNT
+    cell_count_label_object = None
     def __init__(self, x, y, is_mine=False):
         self.is_mine = is_mine
         self.cell_btn_object = None
+        self.is_opened = False
         self.x = x
         self.y = y
         #Append the object to the Cell.all list
@@ -16,13 +19,23 @@ class Cell:
             location,
             width=12,
             height=4
-
         )
         # Bind = Print something when we left-click on a button
 
         btn.bind("<Button-1>", self.left_click_actions)  # "<Button-1>" is convention for left-click
         btn.bind("<Button-3>", self.right_click_actions)  # "<Button-3>" is convention for right-click
         self.cell_btn_object = btn
+    @staticmethod
+    def create_cell_count_label(location):
+        lbl = Label(
+            location,
+            bg="black",
+            fg="white",
+            text=f"Cells left: {Cell.cell_count}",
+            font=("", 30)
+        )
+        Cell.cell_count_label_object = lbl
+        return lbl
 
     def left_click_actions(self, event):
         if self.is_mine:
@@ -59,7 +72,16 @@ class Cell:
                 counter += 1
         return counter
     def show_cell(self):
-        self.cell_btn_object.configure(text=self.surrounding_cells_mines_length)
+        if not self.is_opened:
+            Cell.cell_count -= 1
+            self.cell_btn_object.configure(text=self.surrounding_cells_mines_length)
+            #Replace the text of count cell label with the remaining cells
+            if Cell.cell_count_label_object:
+                Cell.cell_count_label_object.configure(
+                    text=f"Cells left: {Cell.cell_count}"
+                )
+        # Mark the cell as opened(use this as the last line of the method)
+        self.is_opened = True
     def show_mine(self):
         #A logic to interrupt the game and display a message that the player lost
         #For now, we only change the background color to red

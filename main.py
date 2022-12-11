@@ -49,6 +49,10 @@ for x in range(settings.GRID_SIZE):
         button.cell_btn_object.grid(
             column=x, row=y
         )
+Cell.create_cell_count_label(left_frame)
+Cell.cell_count_label_object.place(
+    x=5, y=5
+)
 Cell.randomize_mines()
 
 
