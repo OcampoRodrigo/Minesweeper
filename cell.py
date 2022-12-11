@@ -48,9 +48,15 @@ class Cell:
         ]
         cells = [cell for cell in cells if cell is not None]
         return cells
-
+    @property
+    def surrounding_cells_mines_length(self):
+        counter = 0
+        for cell in self.surrounding_cells:
+            if cell.is_mine:
+                counter += 1
+        return counter
     def show_cell(self):
-        print(surrounding_cells)
+        print(self.surrounding_cells)
     def show_mine(self):
         #A logic to interrupt the game and display a message that the player lost
         #For now, we only change the background color to red
